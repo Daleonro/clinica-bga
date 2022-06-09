@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, 'views')); // direccion a la carpeta donde
  * las vistas que seran mostradas
  */
 
-app.engine('.hbs', expressHbs({
+app.engine('.hbs', expressHbs.engine({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialDir: path.join(app.get('views'), 'partial'),
@@ -42,6 +42,9 @@ app.use(session({
 
 //Rutas
 
+app.use(require('./routes/index'));
+app.use(require('./routes/doctor-main'));
+app.use(require('./routes/consulta'));
 
 //Archivos estaticos
 
