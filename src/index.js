@@ -7,6 +7,7 @@ const session = require('express-session');
 //Inicializaciones
 
 const app = express();
+require('./database');
 
 //Configuraciones
 
@@ -43,11 +44,14 @@ app.use(session({
 //Rutas
 
 app.use(require('./routes/index'));
+app.use(require('./routes/login'))
 app.use(require('./routes/doctor-main'));
 app.use(require('./routes/consulta'));
 
+
 //Archivos estaticos
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Inicializacion del servidor
 

@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
 
-// router.get('/', (req,res) => {
-//     res.send('index');
-// })
+router.get('/user/doctor', (req,res) => {
+    res.send('Pagina de vista principal del doctor');
+})
 
 
 module.exports = router;

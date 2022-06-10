@@ -26,4 +26,12 @@ Estas dependencias solamente se ejecutan en el entorno de desarrollo y no son ne
 
 # Aclaraciones
 
-Al no utilizar un framework de frontend se realiza el proyecto con un modelo vista controlador, las vistas seran renderizadas por un motor de plantillas, en este caso *handlebars*
+Al no utilizar un framework de frontend se realiza el proyecto con un modelo vista controlador, las vistas seran renderizadas por un motor de plantillas, en este caso *handlebars*.
+
+# Rutas creadas
+
+En el momento se encuentran configuradas en la carpeta *routes* las siguientes rutas, esto de acuerdo a las vistas que tendra la aplicacion.
+
+- index.js = Vista principa y de inicio de sesion
+- doctor-main.js = vista luego del inicio de sesion, debemos determinar que informacion vera el doctor en este punto o si no se vera nada
+- consulta.js = vista para la consulta de un paciente
