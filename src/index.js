@@ -46,7 +46,11 @@ app.use(session({
 app.use(require('./routes/index'));
 app.use(require('./routes/login'))
 app.use(require('./routes/doctor-main'));
-app.use(require('./routes/consulta'));
+app.use(require('./routes/ingreso-paciente'));
+app.use(require('./routes/consulta-paciente'));
+app.use(require('./routes/editar-paciente'));
+
+
 
 
 //Archivos estaticos

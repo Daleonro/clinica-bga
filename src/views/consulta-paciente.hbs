@@ -1,0 +1,50 @@
+<section class="col-md-6 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Consulta Paciente - ClinicaBGA</h3>
+        </div>
+        <div class="card-body">
+            <h3>Ingrese la cedula del paciente</h3>
+             <form>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="tipoDocumento">Tipo de documento</label>
+                        <select id="tipoDocumento" class="form-control">
+                            <option selected>Seleccione una opcion</option>
+                            <option>Cedula Ciudadania</option>
+                            <option>Tarjeta de identidad</option>
+                            <option>Cedula de extrangeria</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombrePac">Nombres del paciente</label>
+                        <input type="text" class="form-control" id="nombrePac">
+                    </div>
+                        <div class="form-group col-md-6">
+                            <label for="apellidoPac">Apellidos del paciente</label>
+                            <input type="text" class="form-control" id="apellidoPac">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccionPac">Direccion</label>
+                        <input type="text" class="form-control" id="direccionPac">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefonoPac">Telefono</label>
+                        <input type="text" class="form-control" id="telefonoPac">
+                    </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="ciudadPac">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudadPac">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="historiaPac">Ingreso historia clinica</label>
+                        <textarea class="form-control" id="historiaPac" rows="3"></textarea>
+                    </div>
+                <button type="submit" class="btn btn-primary mt-4">Guardar</button>
+            </form>
+        </div>
+    </div>
+</section>
