@@ -16,6 +16,7 @@ Creacion del esqueleto de la aplicacion y la instalacion de las diferentes depen
     "mongoose": "^6.3.6", = Modulo que permite la conexion a la base de datos
     "passport": "^0.6.0", = Modulo para la autenticacion
     "passport-local": "^1.0.0" = Modulo para el guardado de la sesion en local
+    "express-validator": "^6.14.1" = Modulo para validacion en el backend
 
 # Dependencias del entorno de desarrollo
 
