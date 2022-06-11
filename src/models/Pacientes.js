@@ -8,6 +8,7 @@ const pacienteSchema = new Schema({
     apellidoPaciente: {type: String, required: true},
     numeroPaciente: {type: Number, required: true},
     direccionPaciente: {type: String, required: true},
+    ciudadPaciente : {type: String, required:true},
     historiaClinica: {type: String, required: true},
     date: {type: Date, default: Date.now}
 });
