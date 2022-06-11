@@ -2,34 +2,34 @@ const router = require('express').Router();
 
 const { body, validationResult } = require('express-validator');
 
-
 require('../models/Pacientes');
 
-router.get('/ingreso-paciente', (req,res) => {
-    res.render('ingreso-paciente');
+router.get('/registro-paciente', (req,res) => {
+    res.render('new-paciente');
 });
 
 router.post('/nuevo-paciente', [
-    body('cedula', 'Ingrese un numero de cedula valido sin comas ni puntos').exists().isNumeric().isLength({min:6}),
-    body('nombrePaciente', 'Ingrese un nombre valido').exists().isString(),
-    body('apellidoPaciente', 'Ingrese un apellido valido').exists().isString(),
-    body('numeroPaciente', 'Ingrese un numero de telefono valido').exists().isNumeric().isLength({min:7}),
-    body('direccionPaciente', 'Ingrese una direccion valida').exists(),
-    body('ciudadPaciente', 'Ingrese una ciudad valida').exists(),
-    body('historiaClinica', 'Ingrese la historia clinica del paciente').exists(),
-    body('date', 'Ingrese la fecha de la consulta').exists()
-], (req,res) => {
-    console.log(req.body);
-    const { tipoDocumento, cedula, nombrePaciente, apellidoPaciente, numeroPaciente, direccionPaciente, ciudadPaciente, historiaClinica, date } = req.body;
-    res.send('Datos enviados :D')
+    body('cedula', 'Ingrese un numero de cedula valido sin comas ni puntos').exists().isNumeric(),
+    body('nombrePaciente', 'Ingrese un nombre valido').exists().isLength({min:5}),
+    body('apellidoPaciente', 'Ingrese un apellido valido').exists().isLength({min:5}),
+    body('numeroPaciente', 'Ingrese un numero de telefono valido').exists().isNumeric(),
+    body('direccionPaciente', 'Ingrese una direccion valida').exists().isLength({min:5}),
+    body('ciudadPaciente', 'Ingrese una ciudad valida').exists().isLength({min:5}),
+    body('historiaClinica', 'Ingrese la historia clinica del paciente').exists().isLength({min:5}),
+    body('date', 'Ingrese la fecha de la consulta').exists().isLength({min:5})
+    ], (req,res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const validaciones = errors.array()
+        res.render('new-paciente', { validaciones });
+    } else {
+        res.send('Validacion de datos exitosa');
+    }
 });
 
 router.get('/consulta-paciente', (req,res) => {
     res.render('consulta-paciente');
 });
 
-router.get('/ingreso-paciente', (req,res) => {
-    res.render('ingreso-paciente');
-});
 
 module.exports = router;

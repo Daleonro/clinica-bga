@@ -52,6 +52,7 @@ app.use(require('./routes/paciente'));
 
 
 
+
 //Archivos estaticos
 
 app.use(express.static(path.join(__dirname, 'public')));
