@@ -1,10 +1,12 @@
+const Pacientes = require('../models/Pacientes');
+
 const router = require('express').Router();
 
 require('../models/Pacientes');
 
 
-router.get('/doctor-main', (req,res) => {
-    res.render('doctor-main');
+router.get('/doctor-main', async (req,res) => {
+    const pacientes = await Pacientes.find();
 });
 
 
