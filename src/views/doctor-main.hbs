@@ -1,1 +1,36 @@
-<p>Espacio para la vista del codigo del doctor vista principal</p>
+<h1 class="titulo-main">Lista de pacientes</h1>    
+    <div class="container">
+        {{#each pacientes}}
+        <div class="card mt-2">
+            <div class="card-body">
+                <h6 class="card-title d-flex justify-content-between aling-items-center" >
+                    {{nombrePaciente}} {{apellidoPaciente}} | {{tipoDocumento}} : {{cedula}} <a href="/consulta-paciente/{{_id}}"><button class="btn btn-primary">Consultar paciente</button></a>
+                </h6>
+                <p class="d-flex justify-content-between aling-items-center">
+                    {{historiaClinica}}
+                </p>
+                <form action="/doctor-main/delete/{{_id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <p id="boton-borrar">
+                        <button class="btn btn-danger btn-block" type="submit">Borrar paciente</button>
+                    </p>
+                </form>
+            </div>
+        </div>  
+        {{else}}
+        <div class="card mx-auto">
+            <div class="card-body">
+                <p class="lead">Donde quiera que se ama el arte de la medicina se ama también a la humanidad</p>
+                <p class="lead">"Platon"</p>
+                <div class="row w-100 align-items-center">
+    		    </div>
+                
+            </div>
+        </div>
+        {{/each}}
+            <div class="row w-100 mt-5 align-items-center">
+                <div class="col text-center">
+                    <a href="/new-paciente" class="btn btn-success">Registrar nuevo paciente</a>
+                </div>	
+    		</div>
+ </div>

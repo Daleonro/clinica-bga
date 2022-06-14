@@ -10,7 +10,7 @@ const pacienteSchema = new Schema({
     direccionPaciente: {type: String, required: true},
     ciudadPaciente : {type: String, required:true},
     historiaClinica: {type: String, required: true},
-    date: {type: Date, default: Date.now}
+    date: {type: String, required: true}
 });
 
 module.exports = mongoose.model('Paciente', pacienteSchema);

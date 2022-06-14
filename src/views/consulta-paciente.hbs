@@ -4,46 +4,56 @@
             <h3>Consulta Paciente - ClinicaBGA</h3>
         </div>
         <div class="card-body">
-            <h3>Ingrese la cedula del paciente</h3>
-             <form>
+            <h3>Datos del paciente</h3>
+             <form action="/consulta-paciente/edit/{{paciente._id}}?_method=PUT" method="POST">
+             <input type="hidden" name="_method" value="PUT">
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="tipoDocumento">Tipo de documento</label>
-                        <select id="tipoDocumento" class="form-control" name="tipoDocumento">
+                        <select id="tipoDocumento" class="form-control" name="tipoDocumento" value="{{paciente.tipoDocumento}}" disabled>
                             <option>Cedula Ciudadania</option>
                             <option>Tarjeta de identidad</option>
                             <option>Cedula de extrangeria</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
+                        <label for="nombrePac">Cedula del paciente</label>
+                        <input type="text" class="form-control" id="nombrePac" name="cedula" disabled value="{{paciente.cedula}}">
+                    </div>
+                    <div class="form-group col-md-6">
                         <label for="nombrePac">Nombres del paciente</label>
-                        <input type="text" class="form-control" id="nombrePac">
+                        <input type="text" class="form-control" id="nombrePac" name="nombrePaciente" disabled value="{{paciente.nombrePaciente}}">
                     </div>
                         <div class="form-group col-md-6">
                             <label for="apellidoPac">Apellidos del paciente</label>
-                            <input type="text" class="form-control" id="apellidoPac">
+                            <input type="text" class="form-control" id="apellidoPac" name="apellidoPaciente" disabled value="{{paciente.apellidoPaciente}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="direccionPac">Direccion</label>
-                        <input type="text" class="form-control" id="direccionPac">
+                        <input type="text" class="form-control" id="direccionPac" name="direccionPaciente" disabled value="{{paciente.direccionPaciente}}">
                     </div>
                     <div class="form-group">
                         <label for="telefonoPac">Telefono</label>
-                        <input type="text" class="form-control" id="telefonoPac">
+                        <input type="text" class="form-control" id="telefonoPac" name="numeroPaciente" disabled value="{{paciente.numeroPaciente}}">
                     </div>
-                <div class="form-row">
+                    <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="ciudadPac">Ciudad</label>
-                        <input type="text" class="form-control" id="ciudadPac">
+                        <input type="text" class="form-control" id="ciudadPac" name="ciudadPaciente" disabled value="{{paciente.ciudadPaciente}}">
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="historiaPac">Ingreso historia clinica</label>
-                        <textarea class="form-control" id="historiaPac" rows="3"></textarea>
+                        <label for="telefonoPac">Fecha de la consulta</label>
+                        <input type="text" class="form-control" id="telefonoPac" name="date" placeholder="DD/MM/AAAA">
                     </div>
-                <button type="submit" class="btn btn-primary mt-4">Guardar</button>
+                    <div class="form-group">
+                        <label for="historiaPac">Ingreso historia clinica</label>
+                        <textarea class="form-control" id="historiaPac" rows="3" name="historiaClinica">{{paciente.historiaClinica}}</textarea>
+                    </div>
+                <button type="submit" class="btn btn-primary mt-4">Guardar registro</button>
             </form>
+            <a href="/doctor-main"><button class="btn btn-danger mt-4 btn-block">Cancelar</button></a>
         </div>
     </div>
 </section>

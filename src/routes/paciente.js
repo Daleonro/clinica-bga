@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const { body, validationResult } = require('express-validator');
+const Pacientes = require('../models/Pacientes');
 
 const Paciente = require('../models/Pacientes');
 
@@ -33,9 +34,21 @@ router.post('/nuevo-paciente', [
         });
 
         
-        router.get('/consulta-paciente', (req,res) => {
-        res.render('consulta-paciente');
-        });
+router.get('/consulta-paciente/:_id', async (req,res) => {
+    const paciente = await Pacientes.findById(req.params._id).lean();
+    res.render('consulta-paciente', {paciente} );
+});
+
+router.put('/consulta-paciente/edit/:id', async (req,res) => {
+    const {tipoDocumento, cedula, nombrePaciente, apellidoPaciente, numeroPaciente, direccionPaciente, ciudadPaciente, historiaClinica, date} = req.body;
+    await Pacientes.findByIdAndUpdate(req.params.id, {date, historiaClinica}); 
+    res.redirect('/doctor-main')
+})
+
+router.delete('/doctor-main/delete/:id', async (req,res) => {
+    await Pacientes.findByIdAndDelete(req.params.id);
+    res.redirect('/doctor-main')
+})
 
 
 module.exports = router;

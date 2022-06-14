@@ -8,3 +8,18 @@ body {
     margin-top: 20px;
     margin-right: 35px;
 }
+
+.titulo-main {
+    margin-bottom: 40px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.lead {
+    text-align: center;
+}
+
+#boton-borrar {
+    float: right;
+}
+
