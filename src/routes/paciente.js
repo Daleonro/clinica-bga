@@ -28,7 +28,7 @@ router.post('/nuevo-paciente', [
         } else {
             const newPaciente = new Paciente({tipoDocumento, cedula, nombrePaciente, apellidoPaciente, numeroPaciente, direccionPaciente, ciudadPaciente, historiaClinica, date})
             await newPaciente.save();
-            console.log(newPaciente);
+            req.flash('success_msg', 'Nuevo paciente agregado satisfactoriamente')
             res.redirect('/doctor-main')
         }
         });
@@ -42,11 +42,13 @@ router.get('/consulta-paciente/:_id', async (req,res) => {
 router.put('/consulta-paciente/edit/:id', async (req,res) => {
     const {tipoDocumento, cedula, nombrePaciente, apellidoPaciente, numeroPaciente, direccionPaciente, ciudadPaciente, historiaClinica, date} = req.body;
     await Pacientes.findByIdAndUpdate(req.params.id, {date, historiaClinica}); 
+    req.flash('success_msg', 'La historia clinica fue actualizada de manera satisfactoria')
     res.redirect('/doctor-main')
 })
 
 router.delete('/doctor-main/delete/:id', async (req,res) => {
     await Pacientes.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'El paciente fue eliminado del registro del doctor')
     res.redirect('/doctor-main')
 })
 

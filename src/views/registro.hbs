@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                Registro de cuenta
+            </div>
+            <div class="card-body">
+                <form action="/registro-usuario" method="POST">
+                    <div class="mt-3">
+                        <input type="text" class="form-control" name="usuario" placeholder="Nombre usuario" value="{{usuario}}">
+                    </div>
+                    <div class="mt-3">
+                        <input type="email" class="form-control" name="correo" placeholder="Correo electronico" value="{{correo}}">
+                    </div>
+                    <div class="mt-3">
+                        <input type="password" class="form-control" name="codigo" placeholder="Codigo Medico" value="{{codigo}}">
+                    </div>
+                    <div class="mt-3">
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña" value="{{password}}">
+                    </div>
+                    <div class="mt-3">
+                        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirma contraseña" value="{{confirmPassword}}" >
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary w-100">
+                            Registrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

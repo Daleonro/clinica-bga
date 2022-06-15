@@ -3,6 +3,7 @@ const path = require('path');
 const expressHbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session'); 
+const flash = require('connect-flash');
 
 //Inicializaciones
 
@@ -37,8 +38,16 @@ app.use(session({
     resave: true ,
     saveUninitialized: true
 }));
+app.use(flash());
 
 //Variables globales
+
+app.use((req, res, next) => {
+    res.locals.success_msg  = req.flash('success_msg');
+    res.locals.error_msg    = req.flash('error_msg');
+    next();
+})
+
 
 
 //Rutas
@@ -62,4 +71,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(app.get('port'), () => {
     console.log(`Servidor escuchando en el puerto ${app.get('port')}`) // prueba del servidor
 });
+
 
