@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 
+const passport = require('passport');
 const User = require('../models/Usuarios');
 
 
@@ -8,6 +9,12 @@ const User = require('../models/Usuarios');
 router.get('/login', (req,res) => {
     res.render('login');
 });
+
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/doctor-main',
+    failureRedirect: '/login',
+    failureFlash: true
+}));
 
 router.get('/registro', (req,res) => {
     res.render('registro');
