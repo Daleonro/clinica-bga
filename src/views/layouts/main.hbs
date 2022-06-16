@@ -12,19 +12,19 @@
         <title>ClinicaBGA</title>
     </head>
     <body>
-        <h1>Barra de navegacion</h1>
-        <main>
+        
+        {{>navegacion}}
+
+        <main class="container my-4">
             {{>errores}}
             {{>mensajes}}
             {{{ body }}}
         </main>
-        
+
+        {{>footer}}
         <!--Scripts Bootstrap-->
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
-
-        <h1>Footer de la pagina</h1>
 
     </body>
 </html>

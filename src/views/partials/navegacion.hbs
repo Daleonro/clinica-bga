@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+        <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">ClinicaBGA - Creando soluciones en salud</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                {{#if user}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Configuracion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/doctor-main">Buscar paciente</a></li>
+                            <li><a class="dropdown-item" href="/doctor-main">Lista de pacientes</a></li>
+                            <li><a class="dropdown-item" href="/logout">Cerrar sesion</a></li>
+                        </ul>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registro">Registrarse</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+    </div>
+</nav>
